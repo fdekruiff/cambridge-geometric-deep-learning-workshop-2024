@@ -2,11 +2,11 @@
 
 <div style="display: flex; justify-content: space-between;">
     <video id="video1" width="48%" controls>
-        <source src="videos/trajectory.mp4" type="video/mp4">
+        <source src="trajectory.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <video id="video2" width="48%" controls>
-        <source src="videos/adk_low_rank_approximation.mp4" type="video/mp4">
+        <source src="adk_low_rank_approximation.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </div>
