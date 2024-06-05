@@ -14,21 +14,25 @@
         var video1 = document.getElementById('video1');
         var video2 = document.getElementById('video2');
 
-        function playVideos() {
-            video1.play();
-            video2.play();
+        var videosReady = [false, false];
+
+        function checkAndPlayVideos() {
+            if (videosReady[0] && videosReady[1]) {
+                video1.currentTime = 0;
+                video2.currentTime = 0;
+                video1.play();
+                video2.play();
+            }
         }
 
         video1.onloadeddata = function() {
-            if (video2.readyState >= 3) {
-                playVideos();
-            }
+            videosReady[0] = true;
+            checkAndPlayVideos();
         };
 
         video2.onloadeddata = function() {
-            if (video1.readyState >= 3) {
-                playVideos();
-            }
+            videosReady[1] = true;
+            checkAndPlayVideos();
         };
     });
 </script>
