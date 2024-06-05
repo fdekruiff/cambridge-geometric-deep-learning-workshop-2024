@@ -2,7 +2,7 @@
 
 <div style="display: flex; justify-content: space-between;">
     <video id="video1" width="48%" controls>
-        <source src="trajectory.mp4" type="video/mp4">
+        <source src="adk_trajectory.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <video id="video2" width="48%" controls>
