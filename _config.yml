@@ -5,3 +5,11 @@ plugins:
 title: Learning Riemannian Metric Preserving Diffeomorphisms in Protein Dynamics
 description: Geometric Deep Learning Workshop 2024 in Cambridge
 show_downloads: false
+
+authors:
+  - name: "Author One"
+    institution: "Institution One"
+  - name: "Author Two"
+    institution: "Institution Two"
+  - name: "Author Three"
+    institution: "Institution Three"
