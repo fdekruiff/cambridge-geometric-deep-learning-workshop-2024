@@ -17,13 +17,16 @@
         var video2 = document.getElementById('video2');
 
         var videosReady = [false, false];
+        var delayInMilliseconds = 3000; // 3 seconds delay
 
         function checkAndPlayVideos() {
             if (videosReady[0] && videosReady[1]) {
                 video1.currentTime = 0;
                 video2.currentTime = 0;
-                video1.play();
-                video2.play();
+                setTimeout(function() {
+                    video1.play();
+                    video2.play();
+                }, delayInMilliseconds);
             }
         }
 
