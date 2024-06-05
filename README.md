@@ -1,5 +1,3 @@
-# Protein Dynamics Trajectory 
-
 <div style="display: flex; justify-content: space-between;">
     <video id="video1" width="48%" controls>
         <source src="adk_trajectory.mp4" type="video/mp4">
@@ -12,7 +10,7 @@
 </div>
 
 <script>
-    window.onload = function() {
+    document.addEventListener('DOMContentLoaded', function() {
         var video1 = document.getElementById('video1');
         var video2 = document.getElementById('video2');
 
@@ -32,5 +30,5 @@
                 playVideos();
             }
         };
-    };
+    });
 </script>
