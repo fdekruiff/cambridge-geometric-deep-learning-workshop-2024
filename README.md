@@ -1,13 +1,11 @@
-# Adenylate Kinase Results
-
 <div style="display: flex; justify-content: space-between;">
     <video id="video1" width="48%" controls>
         <h3>Ground Truth Trajectory</h3>
         <source src="adk_trajectory.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <h3>Low-Rank Approximation</h3>
     <video id="video2" width="48%" controls>
+        <h3>Low-Rank Approximation</h3>
         <source src="adk_low_rank_approximation.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
