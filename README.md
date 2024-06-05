@@ -1,14 +1,14 @@
 <div class="container">
         <div class="video-wrapper">
             <h3>ADK Trajectory</h3>
-            <video id="video1" width="50%" controls>
+            <video id="video1" width="49%" controls>
                 <source src="adk_trajectory.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-wrapper">
             <h3>ADK Low Rank Approximation</h3>
-            <video id="video2" width="50%" controls>
+            <video id="video2" width="49%" controls>
                 <source src="adk_low_rank_approximation.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
