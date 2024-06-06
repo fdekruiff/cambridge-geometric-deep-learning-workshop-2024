@@ -7,17 +7,27 @@ description: Geometric Deep Learning Workshop 2024 in Cambridge
 show_downloads: false
 
 authors:
-  - name: Author 1
+  - name: "Friso de Kruiff"
     index: 1
-    institution: Institution A
-  - name: Author 2
+    institution: "Delft University of Technology"
+  - name: "Willem Diepeveen"
     index: 2
-    institution: Institution B
-  # Add more authors as needed
+    institution: 
+  - name: "Erik Bekekrs"
+    index: 3
+    institution: "University of Amsterdam"
+  - name: "Ozan Öktem"
+    index: 4
+    institution: "KTH Royal Institute of Technology"
 
 institutions:
-  - name: Institution A
+  - name: Delft University of Technology
     index: A
-  - name: Institution B
+  - name: KTH Royal Institute of Technology
     index: B
+  - name: Cambridge University
+    index: C
+  - name: University of Amsterdam
+    index: D
   # Add more institutions as needed
+
