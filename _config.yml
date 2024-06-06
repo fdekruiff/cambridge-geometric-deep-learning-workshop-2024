@@ -18,8 +18,8 @@ authors:
     institutions: 
       - "University of Amsterdam"
   - name: "Ozan Öktem"
-    institutions:  # Fixed the key name here
-      - "KTH Royal Institute of Technology"  # Fixed the typo in institution(s)
+    institutions: 
+      - "KTH Royal Institute of Technology" 
 
 institutions:
   - name: "Delft University of Technology" 
