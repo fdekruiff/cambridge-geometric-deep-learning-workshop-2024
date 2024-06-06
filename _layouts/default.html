@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'en-US' }}">
-<head>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
     <meta charset="UTF-8">
-    {% seo %}
+
+{% seo %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,46 +11,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
-    <style>
-      .video-container {
-        position: relative;
-        overflow: hidden;
-        margin-bottom: 20px;
-      }
-      .video-wrapper {
-        width: 100%;
-        height: auto;
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: none;
-      }
-      video {
-        width: 100%;
-        display: block;
-      }
-      #play-button {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        cursor: pointer;
-      }
-      .authors-list, .institutions-list {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-        text-align: center;
-      }
-      .author-name, .institution-name {
-        margin-right: 15px;
-      }
-      .institution {
-        font-size: 0.8em;
-        color: #555;
-      }
-    </style>
   </head>
   <body>
     <a id="skip-to-content" href="#content">Skip to the content.</a>
@@ -57,31 +18,9 @@
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-      <div class="authors">
-        <div class="authors-list">
-          {% assign institution_indexes = {} %}
-          {% assign index = 1 %}
-          {% for institution in site.institutions %}
-            {% assign institution_indexes = institution_indexes | merge: { institution.name: index } %}
-            {% assign index = index | plus: 1 %}
-          {% endfor %}
-          {% for author in site.authors %}
-            <span class="author-name">{{ author.name }}
-              <sup>
-                {% for institution in author.institutions %}
-                  {{ institution_indexes[institution] }}{% unless forloop.last %},{% endunless %}
-                {% endfor %}
-              </sup>
-            </span>
-          {% endfor %}
-        </div>
-        <div class="institutions-list">
-          {% assign index = 1 %}
-          {% for institution in site.institutions %}
-            <span class="institution-name">{{ institution.name }} <sup>{{ institution_indexes[institution.name] }}</sup></span>
-          {% endfor %}
-        </div>
-      </div>
+      {% if site.github.is_project_page %}
+        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+      {% endif %}
       {% if site.show_downloads %}
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
@@ -89,66 +28,15 @@
     </header>
 
     <main id="content" class="main-content" role="main">
-      <div class="container-lg p-responsive my-5">
-        <h2>Adynalate Kinase Results</h2>
-        <div class="container">
-            <div class="video-wrapper">
-                <h3>Ground Truth Geodesic</h3>
-                <video id="video1" preload="auto">
-                    <source src="adk_geodesic_trajectory.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="video-wrapper">
-                <h3>Approximate Geodesic</h3>
-                <video id="video2" preload="auto">
-                    <source src="adk_geodesic.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="video-wrapper">
-                <h3>Linear Interpolation</h3>
-                <video id="video3" preload="auto">
-                    <source src="adk_linear.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-        <button id="play-button" class="btn btn-primary mt-3">Play All Videos</button>
-    </div>
-
       {{ content }}
 
       <footer class="site-footer">
         {% if site.github.is_project_page %}
-          <span class="site-footer-owner">
-            <a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by 
-            <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.
-          </span>
+          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
         {% endif %}
-        <span class="site-footer-credits">
-          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.
-        </span>
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
       </footer>
     </main>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          var videos = [
-              document.getElementById('video1'),
-              document.getElementById('video2'),
-              document.getElementById('video3')
-          ];
-          var playButton = document.getElementById('play-button');
-  
-          playButton.addEventListener('click', function() {
-              videos.forEach(function(video) {
-                  video.currentTime = 0;
-                  video.play();
-              });
-          });
-      });
-  </script>
   </body>
 </html>
 
