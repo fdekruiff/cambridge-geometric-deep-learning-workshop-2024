@@ -1,6 +1,6 @@
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
-- jekyll-remote-theme
+  - jekyll-remote-theme
 
 title: Learning Riemannian Metric Preserving Diffeomorphisms in Protein Dynamics
 description: Geometric Deep Learning Workshop 2024 in Cambridge
