@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
     <style>
-      .authors-list {
+      .authors-list, .institutions-list {
+        display: flex;
+        flex-wrap: wrap;
         margin-bottom: 10px;
       }
-      .author-name {
-        margin-right: 5px;
+      .author-name, .institution-name {
+        margin-right: 15px;
       }
       .institution {
         font-size: 0.8em;
@@ -32,15 +34,17 @@
       <div class="authors">
         <h3>Authors and Institutions</h3>
         <div class="authors-list">
+          {% assign author_index = 1 %}
           {% for author in site.authors %}
-            <span class="author-name">{{ author.name }}</span>
-            <sup>
-              {% for institution in author.institutions %}
-                {{ institution }}
-                {% unless forloop.last %}, {% endunless %}
-              {% endfor %}
-            </sup>
-            <br>
+            <span class="author-name">{{ author.name }}<sup>{{ author_index }}</sup></span>
+            {% assign author_index = author_index | plus: 1 %}
+          {% endfor %}
+        </div>
+        <div class="institutions-list">
+          {% assign institution_index = 1 %}
+          {% for institution in site.authors | map: 'institutions' | uniq %}
+            <span class="institution-name">{{ institution }}<sup>{{ institution_index }}</sup></span>
+            {% assign institution_index = institution_index | plus: 1 %}
           {% endfor %}
         </div>
       </div>
@@ -67,3 +71,4 @@
     </main>
   </body>
 </html>
+
