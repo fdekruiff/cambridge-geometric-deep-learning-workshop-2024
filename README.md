@@ -23,14 +23,14 @@
 <body>
     <div class="container">
         <div class="video-wrapper">
-            <h3>ADK Trajectory</h3>
+            <h3>Ground Truth Trajectory</h3>
             <video id="video1" controls>
                 <source src="adk_trajectory.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-wrapper">
-            <h3>ADK Low Rank Approximation</h3>
+            <h3>Low Rank Approximation</h3>
             <video id="video2" controls>
                 <source src="adk_low_rank_approximation.mp4" type="video/mp4">
                 Your browser does not support the video tag.
