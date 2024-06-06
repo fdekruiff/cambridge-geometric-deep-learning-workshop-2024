@@ -13,6 +13,7 @@
     <style>
       .authors-list, .institutions-list {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
         margin-bottom: 10px;
       }
@@ -32,7 +33,6 @@
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       <div class="authors">
-        <h3>Authors and Institutions</h3>
         <div class="authors-list">
           {% assign author_index = 1 %}
           {% for author in site.authors %}
@@ -42,8 +42,8 @@
         </div>
         <div class="institutions-list">
           {% assign institution_index = 1 %}
-          {% for institution in site.authors | map: 'institutions' | uniq %}
-            <span class="institution-name">{{ institution }}<sup>{{ institution_index }}</sup></span>
+          {% for institution in site.institutions %}
+            <span class="institution-name">{{ institution.name }}<sup>{{ institution_index }}</sup></span>
             {% assign institution_index = institution_index | plus: 1 %}
           {% endfor %}
         </div>
@@ -71,4 +71,3 @@
     </main>
   </body>
 </html>
-
