@@ -1,28 +1,5 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adynalate Kinase Results</title>
-    <style>
-        .container {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        .video-wrapper {
-            flex: 1;
-            margin-right: 1%;
-        }
-        .video-wrapper:last-child {
-            margin-right: 0;
-        }
-        video {
-            width: 100%;
-        }
-    </style>
-</head>
 <body>
     <h2>Adynalate Kinase Results</h2>
-
     <div class="container">
         <div class="video-wrapper">
             <h3>Ground Truth Geodesic</h3>
@@ -46,7 +23,6 @@
             </video>
         </div>
     </div>
-
     <div class="container">
         <div class="video-wrapper">
             <h3>Ground Truth Trajectory</h3>
@@ -63,7 +39,6 @@
             </video>
         </div>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var video1 = document.getElementById('video1');
@@ -71,11 +46,9 @@
             var video3 = document.getElementById('video3');
             var embeddedVideo1 = document.getElementById('embedded_video1');
             var embeddedVideo2 = document.getElementById('embedded_video2');
-
             var videosReady = [false, false, false];
             var delayBeforeStart = 1000;
             var delayAfterFinish = 1000;
-
             function checkAndPlayVideos() {
                 if (videosReady.every(function(value) { return value; })) {
                     setTimeout(function() {
@@ -88,7 +61,6 @@
                     }, delayBeforeStart);
                 }
             }
-
             function playEmbeddedVideos() {
                 setTimeout(function() {
                     embeddedVideo1.currentTime = 0;
@@ -97,17 +69,14 @@
                     embeddedVideo2.play();
                 }, delayAfterFinish);
             }
-
             video1.onloadeddata = function() {
                 videosReady[0] = true;
                 checkAndPlayVideos();
             };
-
             video2.onloadeddata = function() {
                 videosReady[1] = true;
                 checkAndPlayVideos();
             };
-
             video3.onloadeddata = function() {
                 videosReady[2] = true;
                 checkAndPlayVideos();
@@ -116,4 +85,3 @@
         });
     </script>
 </body>
-</html>
