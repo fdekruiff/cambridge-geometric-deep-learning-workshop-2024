@@ -4,7 +4,7 @@
         <div class="video-wrapper">
             <h3>Ground Truth Geodesic</h3>
             <video id="video1" controls preload="auto">
-                <source src="adk_trajectory.mp4" type="video/mp4">
+                <source src="adk_geodesic_trajectory.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
