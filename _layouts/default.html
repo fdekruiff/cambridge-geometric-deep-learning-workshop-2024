@@ -78,7 +78,7 @@
         <div class="institutions-list">
           {% assign index = 1 %}
           {% for institution in site.institutions %}
-            <span class="institution-name">{{ institution.name }}<sup>{{ institution_indexes[institution.name] }}</sup></span>
+            <span class="institution-name">{{ institution.name }} <sup>{{ institution_indexes[institution.name] }}</sup></span>
           {% endfor %}
         </div>
       </div>
@@ -114,7 +114,7 @@
         <button id="play-button">Play All Videos</button>
       </div>
 
-            <div class="video-container">
+      <div class="video-container">
         <div class="video-wrapper">
           <h3>Video 4</h3>
           <video id="video4" controls>
