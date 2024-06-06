@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: 'en-US' }}">
   <head>
     <meta charset="UTF-8">
     {% seo %}
@@ -54,8 +54,7 @@
         <div class="institutions-list">
           {% assign index = 1 %}
           {% for institution in site.institutions %}
-            <span class="institution-name">{{ institution.name }}<sup>{{ index }}</sup></span>
-            {% assign index = index | plus: 1 %}
+            <span class="institution-name">{{ institution.name }}<sup>{{ institution_indexes[institution.name] }}</sup></span>
           {% endfor %}
         </div>
       </div>
@@ -82,4 +81,3 @@
     </main>
   </body>
 </html>
-
