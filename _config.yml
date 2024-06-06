@@ -8,16 +8,11 @@ show_downloads: false
 
 authors:
   - name: "Friso de Kruiff"
-    institutions: 
-      - "Delft University of Technology"
-      - "KTH Royal Institute of Technology"
+    institutions: ["Delft University of Technology","KTH Royal Institute of Technology"]
   - name: "Willem Diepeveen"
-    institutions: 
-      - "Cambridge University"
+    institutions: ["Cambridge University"]
   - name: "Erik Bekkers"
-    institutions: 
-      - "University of Amsterdam"
+    institutions: ["University of Amsterdam"]
   - name: "Ozan Oktem"
-    institution: 
-      - "KTH Royal Institute of Technology"
+    institution: ["KTH Royal Institute of Technology"]
     
