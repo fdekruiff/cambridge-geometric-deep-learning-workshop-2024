@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adynalate Kinase Results</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .video-wrapper {
+            flex: 1;
+            margin-right: 10px;
+        }
+        video {
+            width: 100%;
+        }
+        .play-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Adynalate Kinase Results</h2>
+    <div class="container">
+        <div class="video-wrapper">
+            <h3>Ground Truth Geodesic</h3>
+            <video id="video1" preload="auto">
+                <source src="adk_geodesic_trajectory.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-wrapper">
+            <h3>Approximate Geodesic</h3>
+            <video id="video2" preload="auto">
+                <source src="adk_geodesic.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-wrapper">
+            <h3>Linear Interpolation</h3>
+            <video id="video3" preload="auto">
+                <source src="adk_linear.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <button id="play-button" class="play-button">Play All Videos</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var videos = [
+                document.getElementById('video1'),
+                document.getElementById('video2'),
+                document.getElementById('video3')
+            ];
+            var playButton = document.getElementById('play-button');
+
+            playButton.addEventListener('click', function() {
+                videos.forEach(function(video) {
+                    video.currentTime = 0;
+                    video.play();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
