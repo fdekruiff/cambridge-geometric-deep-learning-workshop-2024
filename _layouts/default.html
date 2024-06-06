@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'en-US' }}">
-  <head>
+<head>
     <meta charset="UTF-8">
     {% seo %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -11,6 +11,30 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
     <style>
+      .video-container {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+      .video-wrapper {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+      }
+      video {
+        width: 100%;
+        display: block;
+      }
+      #play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+      }
       .authors-list, .institutions-list {
         display: flex;
         justify-content: center;
@@ -65,6 +89,48 @@
     </header>
 
     <main id="content" class="main-content" role="main">
+      <div class="video-container">
+        <div class="video-wrapper">
+          <h3>Video 1</h3>
+          <video id="video1" controls>
+            <source src="video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <h3>Video 2</h3>
+          <video id="video2" controls>
+            <source src="video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <h3>Video 3</h3>
+          <video id="video3" controls>
+            <source src="video3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <button id="play-button">Play All Videos</button>
+      </div>
+
+            <div class="video-container">
+        <div class="video-wrapper">
+          <h3>Video 4</h3>
+          <video id="video4" controls>
+            <source src="video4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <h3>Video 5</h3>
+          <video id="video5" controls>
+            <source src="video5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
       {{ content }}
 
       <footer class="site-footer">
@@ -79,5 +145,25 @@
         </span>
       </footer>
     </main>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var video1 = document.getElementById('video1');
+        var video2 = document.getElementById('video2');
+        var video3 = document.getElementById('video3');
+        var video4 = document.getElementById('video4');
+        var video5 = document.getElementById('video5');
+        var playButton = document.getElementById('play-button');
+
+        playButton.addEventListener('click', function() {
+          video1.play();
+          video2.play();
+          video3.play();
+          video4.play();
+          video5.play();
+        });
+      });
+    </script>
   </body>
 </html>
+
