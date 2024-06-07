@@ -1,4 +1,4 @@
-# Adenylate Kinase Results
+# Adenylate Kinase in Motion
 
 ###  &nbsp; &nbsp; &nbsp; Ground Truth Geodesic &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Approximate Geodesic &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; Linear Interpolation
 
