@@ -20,14 +20,3 @@ authors:
     index: 4
     institution: "KTH Royal Institute of Technology"
 
-institutions:
-  - name: Delft University of Technology
-    index: A
-  - name: KTH Royal Institute of Technology
-    index: B
-  - name: Cambridge University
-    index: C
-  - name: University of Amsterdam
-    index: D
-  # Add more institutions as needed
-
