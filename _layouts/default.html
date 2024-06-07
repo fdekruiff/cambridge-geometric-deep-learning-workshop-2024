@@ -24,12 +24,12 @@
     {% endif %}
     <div>
         {% for author in site.authors %}
-            {{ author.name }}<sup>{{ author.index }}</sup>{% if not forloop.last %}, {% endif %}
+            {{ author.name }}<sup>{{ author.index }}</sup>{% if forloop.last == false %}, {% endif %}
         {% endfor %}
     </div>
     <div>
         {% for author in site.authors %}
-            <span class="institution">{{ author.institution }}<sup>{{ author.index }}</sup></span>{% if not forloop.last %}, {% endif %}
+            <span class="institution">{{ author.institution }}<sup>{{ author.index }}</sup></span>{% if forloop.last == false %}, {% endif %}
         {% endfor %}
     </div>
 </header>
