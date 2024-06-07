@@ -1,6 +1,6 @@
-## Adenylate Kinase Results
+# Adenylate Kinase Results
 
-### &nbsp; &nbsp; &nbsp; &nbsp; Ground Truth Geodesic &nbsp; &nbsp; &nbsp; &nbsp; Approximate Geodesic &nbsp; &nbsp; &nbsp; &nbsp; Linear Interpolation
+## &nbsp; &nbsp; &nbsp; &nbsp; Ground Truth Geodesic &nbsp; &nbsp; &nbsp; &nbsp; Approximate Geodesic &nbsp; &nbsp; &nbsp; &nbsp; Linear Interpolation
 
 <div style="text-align:center;">
   <video autoplay loop muted style="max-width:100%; max-height:100%; margin: 0 auto;">
@@ -9,7 +9,7 @@
   </video>
 </div>
 
-### &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Ground Truth Trajectory &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;Low-Rank Approximation
+## &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Ground Truth Trajectory &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;Low-Rank Approximation
 
 <div style="text-align:center;">
   <video autoplay loop muted style="max-width:100%; max-height:100%; margin: 0 auto;">
