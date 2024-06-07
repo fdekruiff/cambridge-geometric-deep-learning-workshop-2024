@@ -15,6 +15,47 @@
 <body>
 <a id="skip-to-content" href="#content">Skip to the content.</a>
 
+<script>
+// Define the function to populate institution_indexes and return it
+function populateInstitutionIndexes() {
+    var institution_indexes = {};
+    var institution_index = 1;
+    {% for author in site.authors %}
+        {% for institution in author.institutions %}
+            {% unless isInLookupTable(institution.name, institution_indexes) %}
+                institution_indexes[institution.name] = institution_index;
+                institution_index = institution_index + 1;
+            {% endunless %}
+        {% endfor %}
+    {% endfor %}
+    return institution_indexes;
+}
+
+// Function to check if an item exists in the lookup table
+function isInLookupTable(itemName, table) {
+    return table.hasOwnProperty(itemName);
+}
+
+// Call the function to populate institution_indexes
+var institutionIndexes = populateInstitutionIndexes();
+
+// Function to generate the HTML content with superscript indexes
+function generateAuthorsList() {
+    var htmlContent = '<div>';
+    {% for author in site.authors %}
+        htmlContent += '{{ author.name }}';
+        {% for institution in author.institutions %}
+            htmlContent += '<sup>{{ institutionIndexes[institution.name] }}</sup>';
+            {% if forloop.last == false %}, {% endif %}
+        {% endfor %}
+        {% if forloop.last == false %}, {% endif %}
+    {% endfor %}
+    htmlContent += '</div>';
+    return htmlContent;
+}
+</script>
+
+
 <header class="page-header" role="banner">
     <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
     <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
@@ -22,27 +63,48 @@
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
     {% endif %}
-    var institution_indexes = {};
-    var assign institution_index = 1;
-    {% for author in site.authors %}
-        {% for institution in author.institutions %}
-            {% unless isInLookupTable(institution.name, institution_indexes) %}
-                institution_indexes[institution.name] = institution_index;
-                institution_index = institution_index + 1;
-            {% endunless %}
-          {% endfor %}
-    {% endfor %}
+    <script>
+        // Define the function to populate institution_indexes and return it
+        function populateInstitutionIndexes() {
+            var institution_indexes = {};
+            var institution_index = 1;
+            {% for author in site.authors %}
+                {% for institution in author.institutions %}
+                    {% unless isInLookupTable(institution.name, institution_indexes) %}
+                        institution_indexes[institution.name] = institution_index;
+                        institution_index = institution_index + 1;
+                    {% endunless %}
+                {% endfor %}
+            {% endfor %}
+            return institution_indexes;
+        }
 
-    <!-- Authors List with Superscript Indexes -->
-    <div>
-      {% for author in site.authors %}
-        {{ author.name }}
-        {% for institution in author.institutions %}
-          <sup>{{ institution_indexes[institution.name] }}</sup>{% if forloop.last == false %},{% endif %}
-        {% endfor %}
-        {% if forloop.last == false %}, {% endif %}
-      {% endfor %}
-    </div>
+        // Function to check if an item exists in the lookup table
+        function isInLookupTable(itemName, table) {
+            return table.hasOwnProperty(itemName);
+        }
+
+        // Function to generate HTML content for the authors list
+        function generateAuthorsList() {
+            var htmlContent = '<div>';
+            {% for author in site.authors %}
+                htmlContent += '{{ author.name }}';
+                {% for institution in author.institutions %}
+                    htmlContent += '<sup>{{ institutionIndexes[institution.name] }}</sup>';
+                    {% if forloop.last == false %}, {% endif %}
+                {% endfor %}
+                {% if forloop.last == false %}, {% endif %}
+            {% endfor %}
+            htmlContent += '</div>';
+            return htmlContent;
+        }
+
+        // Call the function to populate institution_indexes
+        var institutionIndexes = populateInstitutionIndexes();
+
+        // Call the function to generate HTML content for the authors list and insert it into the header
+        document.querySelector('.page-header').innerHTML += generateAuthorsList();
+    </script>
 </header>
 
 <main id="content" class="main-content" role="main">
