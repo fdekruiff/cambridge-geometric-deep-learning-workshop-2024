@@ -1,6 +1,6 @@
-# Adenylate Kinase Results
+## Adenylate Kinase Results
 
-## Ground Truth Geodesic vs. Approximate Geodesic vs. Linear Interpolation
+### Ground Truth Geodesic vs. Approximate Geodesic vs. Linear Interpolation
 
 <div style="text-align:center;">
   <video autoplay loop muted style="max-width:100%; max-height:100%; margin: 0 auto;">
@@ -9,7 +9,7 @@
   </video>
 </div>
 
-##    Ground Truth Trajectory       Low-Rank Approximation
+###    Ground Truth Trajectory       Low-Rank Approximation
 
 <div style="text-align:center;">
   <video autoplay loop muted style="max-width:100%; max-height:100%; margin: 0 auto;">
