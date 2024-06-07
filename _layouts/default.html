@@ -23,14 +23,64 @@
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
     {% endif %}
     <div>
+        {% assign institution_map = "" | split: "" %}
+        {% assign institution_counter = 1 %}
+
         {% for author in site.authors %}
-            {{ author.name }}<sup>{{ author.index }}</sup>{% if forloop.last == false %}, {% endif %}
+            {% for institution in author.institutions %}
+                {% unless institution_map contains institution.name %}
+                    {% assign institution_map = institution_map | push: institution.name %}
+                    {% capture index %}{{ institution_counter }}{% endcapture %}
+                    {% assign institution_counter = institution_counter | plus: 1 %}
+                    {% assign institution_map = institution_map | push: index %}
+                {% endunless %}
+            {% endfor %}
         {% endfor %}
-    </div>
-    <div>
-        {% for author in site.authors %}
-            <span class="institution">{{ author.institution }}<sup>{{ author.index }}</sup></span>{% if forloop.last == false %}, {% endif %}
+
+        {% assign institution_indexes = "" %}
+        {% for institution in institution_map %}
+            {% assign institution_indexes = institution_indexes | append: institution %}:
+            {% assign next_index = forloop.index | plus: 1 %}
+            {% if next_index <= institution_map.size %}
+                {% assign institution_indexes = institution_indexes | append: institution_map[next_index] %}
+            {% endif %}
+            {% if forloop.index0 != forloop.last %}
+                {% assign institution_indexes = institution_indexes | append: "," %}
+            {% endif %}
         {% endfor %}
+
+        {% capture get_index %}
+            {% assign index = nil %}
+            {% for pair in institution_indexes %}
+                {% assign parts = pair | split: ":" %}
+                {% if parts[0] == institution %}
+                    {% assign index = parts[1] %}
+                {% endif %}
+            {% endfor %}
+            {{ index }}
+        {% endcapture %}
+
+        <div>
+            {% for author in site.authors %}
+                {{ author.name }}
+                {% for institution in author.institutions %}
+                    {% capture institution_index %}
+                        {% assign institution = institution.name %}
+                        {{ get_index }}
+                    {% endcapture %}
+                    <sup>{{ institution_index }}</sup>{% if forloop.last == false %},{% endif %}
+                {% endfor %}
+                {% if forloop.last == false %}, {% endif %}
+            {% endfor %}
+        </div>
+
+        <div>
+            {% for institution in institution_map %}
+                {% if forloop.index0 | modulo: 2 == 0 %}
+                    {{ institution }}<sup>{{ institution_map[forloop.index0 | plus: 1] }}</sup>{% if forloop.last == false %}, {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
 </header>
 
