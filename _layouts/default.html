@@ -39,7 +39,9 @@
 </header>
 
 <main id="content" class="main-content" role="main">
-    {{ content }}
+    <!-- Read and include the content of the README file -->
+    {% capture readme_content %}{% include_relative README.md %}{% endcapture %}
+    {{ readme_content | markdownify }}
 
 <footer class="site-footer">
     {% if site.github.is_project_page %}
