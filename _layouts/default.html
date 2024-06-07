@@ -22,55 +22,25 @@
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
     {% endif %}
-    {% assign institution_map = "" | split: "" %}
-    {% assign institution_counter = 1 %}
+    var institution_indexes = {};
+    var assign institution_index = 1;
     {% for author in site.authors %}
-      {% for institution in author.institutions %}
-        {% unless institution_map contains institution.name %}
-          {% assign institution_map = institution_map | push: institution.name %}
-          {% assign institution_map = institution_map | push: institution_counter %}
-          {% assign institution_counter = institution_counter | plus: 1 %}
-        {% endunless %}
-      {% endfor %}
+        {% for institution in author.institutions %}
+            {% unless isInLookupTable(institution.name, institution_indexes) %}
+                institution_indexes[institution.name] = institution_index;
+                institution_index = institution_index + 1;
+            {% endunless %}
+          {% endfor %}
     {% endfor %}
-
-    <!-- Function to Get Index from Institution Name -->
-    {% assign institution_indexes = "" %}
-    {% for institution in institution_map %}
-      {% if forloop.index0 | modulo: 2 == 0 %}
-        {% assign institution_indexes = institution_indexes | append: institution %}:{% assign next_index = forloop.index | plus: 1 %}{{ institution_map[next_index }}{% if forloop.last == false %},{% endif %}
-      {% endif %}
-    {% endfor %}
-
-    {% capture get_index %}
-      {% assign index = nil %}
-      {% for pair in institution_indexes %}
-        {% assign parts = pair | split: ":" %}
-        {% if parts[0] == institution %}
-          {% assign index = parts[1] %}
-        {% endif %}
-      {% endfor %}
-      {{ index }}
-    {% endcapture %}
 
     <!-- Authors List with Superscript Indexes -->
     <div>
       {% for author in site.authors %}
         {{ author.name }}
         {% for institution in author.institutions %}
-          {% assign institution = institution.name %}
-          <sup>{{ institution_map[institution_map.index_of(institution) | plus: 1] }}</sup>{% if forloop.last == false %},{% endif %}
+          <sup>{{ institution_indexes[institution.name] }}</sup>{% if forloop.last == false %},{% endif %}
         {% endfor %}
         {% if forloop.last == false %}, {% endif %}
-      {% endfor %}
-    </div>
-
-    <!-- Institutions List with Unique Indexes -->
-    <div>
-      {% for institution in institution_map %}
-        {% if forloop.index0 | modulo: 2 == 0 %}
-          {{ institution }}<sup>{{ institution_map[forloop.index0 | plus: 1] }}</sup>{% if forloop.index0 | plus: 2 < institution_map.size %}, {% endif %}
-        {% endif %}
       {% endfor %}
     </div>
 </header>
