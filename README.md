@@ -9,7 +9,7 @@
   </video>
 </div>
 
-###    Ground Truth Trajectory       Low-Rank Approximation
+### &nbsp; &nbsp; &nbsp; Ground Truth Trajectory &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Low-Rank Approximation
 
 <div style="text-align:center;">
   <video autoplay loop muted style="max-width:100%; max-height:100%; margin: 0 auto;">
